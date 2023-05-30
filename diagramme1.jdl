@@ -1,0 +1,51 @@
+entity Utilisateur {
+  id Long,
+  nom String,
+  email String,
+  motDePasse String,
+  abonnement Abonnement
+}
+
+entity Reservation {
+  date LocalDate,
+  creneau String,
+  salle Salle,
+  utilisateur Utilisateur
+}
+
+entity Salle {
+  nom String,
+  emplacement String,
+  equipements String,
+  horaires String
+}
+
+entity Abonnement {
+  utilisateur Utilisateur,
+  type String,
+  dateDebut LocalDate,
+  dateFin LocalDate
+}
+
+entity Paiement {
+  montant Double,
+  date LocalDate,
+  statut String,
+  reservation Reservation
+}
+
+entity Equipement {
+  nom String,
+  salle Salle
+}
+
+relationship OneToOne {
+  Utilisateur{abonnement} to Abonnement{utilisateur}
+}
+
+relationship ManyToOne {
+  Reservation{utilisateur} to Utilisateur,
+  Reservation{salle} to Salle,
+  Paiement{reservation} to Reservation,
+  Equipement{salle} to Salle
+}
