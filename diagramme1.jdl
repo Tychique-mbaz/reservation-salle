@@ -1,5 +1,4 @@
 entity Utilisateur {
-  id Long,
   nom String,
   email String,
   motDePasse String,
