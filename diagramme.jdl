@@ -1,5 +1,4 @@
 entity Utilisateur {
-  id Long,
   nom String,
   email String,
   motDePasse String,
@@ -7,7 +6,6 @@ entity Utilisateur {
 }
 
 entity Reservation {
-  id Long,
   date LocalDate,
   creneau String,
   salle Salle,
@@ -15,7 +13,6 @@ entity Reservation {
 }
 
 entity Salle {
-  id Long,
   nom String,
   emplacement String,
   equipements String,
@@ -23,7 +20,6 @@ entity Salle {
 }
 
 entity Abonnement {
-  id Long,
   utilisateur Utilisateur,
   type String,
   dateDebut LocalDate,
@@ -31,7 +27,6 @@ entity Abonnement {
 }
 
 entity Paiement {
-  id Long,
   montant Double,
   date LocalDate,
   statut String,
@@ -39,7 +34,6 @@ entity Paiement {
 }
 
 entity Equipement {
-  id Long,
   nom String,
   salle Salle
 }
